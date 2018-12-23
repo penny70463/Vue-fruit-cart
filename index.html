@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue fruit cart</title>
+  
+  
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class='bg-image'></div>
+  <div id='app'>
+  <ul v-for='product in products'>
+    <div id='per'><li>{{product.name}}</li>
+    <li>price:{{product.price}}</li>
+      <button v-on:click='addItem(product)'>加入購物車</button>
+      <img :src='product.link' id='fruit'></div>
+  </ul><div id='cart'><a><i class="fa fa-shopping-cart fa-2x"></i></a><li v-for='product in cart'>{{product.name}}:{{product.count}} unit <div id='icons'><a href='#' v-on:click='addItem(product)'><i class="fa fa-plus"></i></a><a href='#' v-on:click='minus(product)' ><i class="fa fa-minus"></i></a></div></li>Total price:{{this.total}}<button v-if='this.total!==0' v-on:click='check()'>確認訂單</button></div>
+    <template  ><div id='order' v-show='active'>
+      <h2>已收到訂單!</h2>
+      <p><li v-for='product in cart'>{{product.name}} {{product.count}} unit</li>共{{this.total}}元,謝謝您!</p>
+      <button v-on:click='confirm()'>OK</button>
+      </div></template>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min.js'></script>
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
